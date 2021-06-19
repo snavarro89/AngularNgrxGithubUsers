@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
-import { map, mergeMap, catchError, withLatestFrom, tap } from "rxjs/operators"
+import { map, mergeMap, catchError, withLatestFrom } from "rxjs/operators"
 import { UserService } from "../../_services/user.service"
 import * as UserActions from "./user.actions"
 import * as UserSelectors from "./user.selectors"

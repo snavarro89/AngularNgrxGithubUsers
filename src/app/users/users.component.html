@@ -1,0 +1,7 @@
+
+  <div class="userList">
+    <app-user-list 
+      [userList]="(users$ | async)"
+      (addMoreUsers)="loadUsers()"
+    ></app-user-list>
+  </div>

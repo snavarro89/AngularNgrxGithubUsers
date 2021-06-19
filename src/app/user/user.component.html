@@ -1,0 +1,21 @@
+
+<ion-searchbar showCancelButton="focus" [(ngModel)]="userNameSearch" (change)="searchUser($event)"></ion-searchbar>
+<div class="ion-padding" *ngIf="user$ | async as user">
+  <div class="card">
+    <div class="header">
+      <div class="avatar">
+        <img [src]="user.avatar_url" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="user-meta ion-text-center">
+      <h3 class="playername">{{user.login}}</h3>
+      <h5 class="country">{{user.company}}</h5>
+      <h6 class="playername">{{user.location}}</h6>
+      <p class="country">{{user.bio}}
+      </p>
+    </div>
+    <ion-button *ngIf="user.blog" expand="full" color="primary">{{user.blog}}</ion-button>
+  </div>
+</div>

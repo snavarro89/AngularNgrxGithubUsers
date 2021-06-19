@@ -1,0 +1,7 @@
+<ion-thumbnail slot="start">
+  <!-- Research why the item is no longer showing the avatar and the name in the same line.-->
+<ion-img [src]="user.avatar_url"></ion-img> 
+</ion-thumbnail>
+<ion-label slot="end">
+  <h2 [repos]="user.public_repos">{{user.login}}</h2>
+</ion-label>

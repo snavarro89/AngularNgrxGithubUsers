@@ -1,0 +1,17 @@
+<div *ngIf="userList?.length > 0">
+<ion-list class="ios list-ios hydrated" inset>
+  <ion-list-header class="ios hydrated">
+    Github User List
+  </ion-list-header>
+
+  <ion-item *ngFor="let user of userList">
+    <app-user-item [user]="user" (click)="loadUser(user.login)"></app-user-item>
+  </ion-item>
+</ion-list>
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</div>

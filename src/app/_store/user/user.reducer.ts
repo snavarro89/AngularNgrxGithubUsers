@@ -1,5 +1,5 @@
 import { createEntityAdapter, EntityAdapter } from "@ngrx/entity"
-import { User } from "../../_models/users.model"
+import { User } from "../../_models/user.model"
 import { initialState, UserState, userAdapter } from "./user.state"
 import * as UserActions from "./user.actions"
 import { createReducer, on, Action } from "@ngrx/store"
