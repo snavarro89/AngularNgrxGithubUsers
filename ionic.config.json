@@ -1,0 +1,7 @@
+{
+  "name": "OpenForgeGitHubUsers",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
