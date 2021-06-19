@@ -46,6 +46,7 @@ export class UserComponent implements OnInit {
   }
 
   openBlog(blog){
+    //TODO: If the url comes with http instead of https it fails to load directly on the mobile app.
     const browser = this._inAppBrowser.create(blog, '_self', this.browserOptions)
     browser.show()
   }
