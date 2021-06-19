@@ -16,6 +16,6 @@
       <p class="country">{{user.bio}}
       </p>
     </div>
-    <ion-button *ngIf="user.blog" expand="full" color="primary">{{user.blog}}</ion-button>
+    <ion-button *ngIf="user.blog" expand="full" color="primary" (click)="openBlog(user.blog)">{{user.blog}}</ion-button>
   </div>
 </div>

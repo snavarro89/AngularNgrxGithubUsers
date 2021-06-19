@@ -6,6 +6,8 @@ import { User } from '../_models/user.model';
 import { UserStoreState, UserActions, UserSelectors} from '../_store/user';
 import { usersKey } from '../_store/user/user.reducer';
 
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx'
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -17,9 +19,17 @@ export class UserComponent implements OnInit {
   public userNameSearch$: Observable<User>
   public userNameSearch: string = ""
 
-  private _unsubscribeAll: Subject<any> = new Subject<any>();
+  browserOptions: InAppBrowserOptions = {
+    location: 'no',
+    hidden: 'no',
+    zoom: 'yes',
+    hideurlbar: 'yes',
+    toolbar: 'no',
+    hidenavigationbuttons: 'yes',
+};
 
-  constructor(private _store: Store<UserStoreState.UserState>) { }
+  constructor(private _store: Store<UserStoreState.UserState>,
+    private _inAppBrowser: InAppBrowser) { }
 
   ngOnInit() {
     this.user$ = this._store.pipe(select(UserSelectors.selectUser))
@@ -33,6 +43,11 @@ export class UserComponent implements OnInit {
   searchUser(event){
     this._store.dispatch(UserActions.updateSearchQuery({userName:this.userNameSearch}))
     this._store.dispatch(UserActions.loadUser())
+  }
+
+  openBlog(blog){
+    const browser = this._inAppBrowser.create(blog, '_self', this.browserOptions)
+    browser.show()
   }
 
 }
